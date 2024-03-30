@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://bw71bobm6naya"]
+
+[node name="go_back_btn" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+size_flags_horizontal = 3
+text = "Wróć"
