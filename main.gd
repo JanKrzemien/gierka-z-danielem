@@ -10,3 +10,6 @@ extends Node2D
 #
 #
 #dsadasdasda
+
+func _ready():
+	print('kys')
