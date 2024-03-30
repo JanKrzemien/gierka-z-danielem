@@ -13,3 +13,6 @@ extends Node2D
 
 func mobbyn():
 	print("mobbyn mobbyn mobbyn mobbyn mobbyn.")
+
+func _ready():
+	print("chuj")
