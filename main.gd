@@ -1,3 +1,3 @@
 extends Node2D
 
-#Pierdolony Rockstar
+#Pierdolony popoiołek
