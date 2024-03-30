@@ -10,3 +10,6 @@ extends Node2D
 #
 #
 #dsadasdasda
+
+func mobbyn():
+	print("mobbyn mobbyn mobbyn mobbyn mobbyn.")
