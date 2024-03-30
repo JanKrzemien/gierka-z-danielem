@@ -16,3 +16,4 @@ func mobbyn():
 
 func _ready():
 	print("chuj")
+	print('kys')
