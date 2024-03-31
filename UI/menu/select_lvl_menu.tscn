@@ -9,3 +9,5 @@ script = ExtResource("1_0ktiu")
 back_button = ExtResource("2_u0dn0")
 
 [node name="button_list" parent="." instance=ExtResource("4_0kdpe")]
+offset_right = 1920.0
+offset_bottom = 1080.0
