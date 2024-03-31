@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2g5smfajqn7d"]
+
+[ext_resource type="Script" path="res://UI/menu/select_lvl_menu.gd" id="1_0ktiu"]
+[ext_resource type="PackedScene" uid="uid://bw71bobm6naya" path="res://UI/menu/buttons/go_back_btn.tscn" id="2_u0dn0"]
+[ext_resource type="PackedScene" uid="uid://mmfsmoh8mocy" path="res://UI/menu/button_list/button_list.tscn" id="4_0kdpe"]
+
+[node name="SelectLvlMenu" type="Node2D"]
+script = ExtResource("1_0ktiu")
+back_button = ExtResource("2_u0dn0")
+
+[node name="button_list" parent="." instance=ExtResource("4_0kdpe")]
+offset_right = 1920.0
+offset_bottom = 1080.0

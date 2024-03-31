@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://mmfsmoh8mocy"]
+
+[ext_resource type="Script" path="res://UI/menu/button_list/button_list.gd" id="1_v2hmd"]
+
+[node name="button_list" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_v2hmd")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="spacing" type="HBoxContainer" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -576.0
+offset_top = -324.0
+offset_right = 576.0
+offset_bottom = 324.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpacerH" type="Control" parent="CanvasLayer/spacing"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="menu_btns" type="VBoxContainer" parent="CanvasLayer/spacing"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="SpacerH2" type="Control" parent="CanvasLayer/spacing"]
+layout_mode = 2
+size_flags_horizontal = 3
