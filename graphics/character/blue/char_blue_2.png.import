@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bolynyyobgkop"
-path="res://.godot/imported/Jump-Start-Sheet.png-232cfa5795e4a02e0212f3876808f58d.ctex"
+uid="uid://bkbksfbwexurq"
+path="res://.godot/imported/char_blue_2.png-10d8ff293effdab0e9f2822568bd1b1d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://graphics/character/Jump-Start/Jump-Start-Sheet.png"
-dest_files=["res://.godot/imported/Jump-Start-Sheet.png-232cfa5795e4a02e0212f3876808f58d.ctex"]
+source_file="res://graphics/character/blue/char_blue_2.png"
+dest_files=["res://.godot/imported/char_blue_2.png-10d8ff293effdab0e9f2822568bd1b1d.ctex"]
 
 [params]
 

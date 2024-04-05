@@ -435,8 +435,6 @@ layer_0/tile_data = PackedInt32Array(1966080, 589824, 2, 2031616, 589824, 3, 196
 position = Vector2(295, 821)
 scale = Vector2(4, 4)
 speed = 500.0
-jump_velocity = -450.0
-double_jump_velocity = -300.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
