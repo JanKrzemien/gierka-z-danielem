@@ -2,6 +2,8 @@ extends State
 
 class_name GroundState
 
+@onready var buffer_timer : Timer = $BufferTimer
+
 @export var jump_velocity : float = -450.0
 @export var falling_animation : String = "falling"
 @export var air_state : State
@@ -10,7 +12,7 @@ class_name GroundState
 @export var attack_node : String = "attack1"
 
 func state_process(delta):
-	if(!character.is_on_floor()):
+	if(!character.is_on_floor() && buffer_timer.is_stopped()):
 		playback.travel(falling_animation)
 		next_state = air_state
 
