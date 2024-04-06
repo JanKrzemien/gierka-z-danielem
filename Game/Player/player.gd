@@ -1,11 +1,14 @@
 extends CharacterBody2D
 
+class_name Player
+
 @export var speed : float = 200.0
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine : CharacterStateMachine = $CharacterStateMachine
 
+signal facing_direction_changed(facing_right : bool)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
@@ -38,5 +41,8 @@ func update_animation_parameters():
 func update_facing_direction():
 	if direction.x > 0:
 		sprite.flip_h = false
+		emit_signal("facing_direction_changed", !sprite.flip_h)
 	elif direction.x < 0:
 		sprite.flip_h = true
+		
+	emit_signal("facing_direction_changed", !sprite.flip_h)
