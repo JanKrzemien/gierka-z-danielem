@@ -5,7 +5,6 @@ extends DisplayScene
 
 @export var game: String = "res://Game/game.tscn"
 @export var back_menu: String = "res://UI/menu/menu.tscn"
-@export var menu: Node2D
 
 func create_packed_button(scene_num):
 	var button: Button = Button.new()
@@ -29,7 +28,7 @@ func _ready():
 			var button = create_packed_button(scene_num)
 			if button != null:
 				buttons[button] = func ():
-					parent_node.switch_scenes(self, game, [lvls_dir_path + lvl_file_name])
+					parent_node.switch_scenes(self, game, { "lvl_file_path": lvls_dir_path + lvl_file_name })
 			lvl_file_name = dir.get_next()
 			scene_num += 1
 	
@@ -40,4 +39,4 @@ func _ready():
 	)
 
 func _on_back_btn_pressed():
-	parent_node.switch_scenes(self, back_menu, [])
+	parent_node.switch_scenes(self, back_menu)

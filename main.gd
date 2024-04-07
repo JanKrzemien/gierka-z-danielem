@@ -5,7 +5,7 @@ extends Node2D
 func _ready():
 	switch_scenes(null, initial_scene)
 
-func switch_scenes(old_scene: Node2D, new_scene: String, new_scene_params: Array = []):
+func switch_scenes(old_scene: Node2D, new_scene: String, new_scene_params: Dictionary = {}):
 	if old_scene != null:
 		old_scene.queue_free()
 	

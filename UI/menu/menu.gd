@@ -14,7 +14,7 @@ func _ready():
 	)
 
 func _on_select_lvl_btn_pressed():
-	parent_node.switch_scenes(self, submenu, [])
+	parent_node.switch_scenes(self, submenu)
 
 func _on_quit_btn_pressed():
 	get_tree().quit()
