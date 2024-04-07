@@ -40,6 +40,22 @@ tracks/0/keys = {
 "values": [ExtResource("1_3f3t7"), ExtResource("7_iflwm"), ExtResource("8_e2l5x"), ExtResource("9_3ddd0"), ExtResource("10_fpx6w")]
 }
 
+[sub_resource type="Animation" id="Animation_577xi"]
+resource_name = "hit"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("13_c56sn"), ExtResource("14_ad5vf"), ExtResource("15_014ye")]
+}
+
 [sub_resource type="Animation" id="Animation_ah2h6"]
 resource_name = "walk"
 length = 0.55
@@ -55,34 +71,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [ExtResource("6_pehxt"), ExtResource("7_g1iin"), ExtResource("8_s1yfq"), ExtResource("9_ajwkh"), ExtResource("10_y2lsn"), ExtResource("11_4ttrn")]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:flip_h")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-
-[sub_resource type="Animation" id="Animation_577xi"]
-resource_name = "hit"
-length = 0.3
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [ExtResource("13_c56sn"), ExtResource("14_ad5vf"), ExtResource("15_014ye")]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2v8tl"]
@@ -128,7 +116,7 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_hu4q0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("13_c56sn")
+texture = ExtResource("7_g1iin")
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -159,9 +147,10 @@ script = ExtResource("18_ere51")
 script = ExtResource("14_qx1k6")
 can_move = false
 
-[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "dead_state", "return_state")]
+[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "sprite2D", "dead_state", "return_state")]
 script = ExtResource("15_cnx56")
 damageable = NodePath("../../Damagable")
+sprite2D = NodePath("../../Sprite2D")
 dead_state = NodePath("../Dead")
 return_state = NodePath("../Walk")
 can_move = false
