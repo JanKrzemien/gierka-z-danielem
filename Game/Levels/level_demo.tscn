@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://cnl1ndw0ur8xx"]
+[gd_scene load_steps=10 format=3 uid="uid://cnl1ndw0ur8xx"]
 
 [ext_resource type="Texture2D" uid="uid://85kuca51xxj2" path="res://graphics/backgrounds/Battleground1.png" id="1_qy677"]
 [ext_resource type="Texture2D" uid="uid://cn27edyjd8j7v" path="res://graphics/map/Tiles.png" id="2_2amcc"]
+[ext_resource type="Script" path="res://Game/Levels/TransitionButton.gd" id="2_isoi4"]
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Game/Player/player.tscn" id="3_1s18a"]
 [ext_resource type="PackedScene" uid="uid://mdea3ohxdyn0" path="res://Game/Enemies/Imp/imp.tscn" id="3_tfpm0"]
 [ext_resource type="PackedScene" uid="uid://wd5u8s8fv3bt" path="res://UI/health_changed_manager.tscn" id="5_aejrh"]
+[ext_resource type="PackedScene" uid="uid://crsfn8cuddk1j" path="res://UI/transitioner.tscn" id="6_c88t4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mj6u"]
 texture = ExtResource("2_2amcc")
@@ -423,6 +425,17 @@ sources/0 = SubResource("TileSetAtlasSource_0mj6u")
 
 [node name="Level" type="Node2D"]
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Transitioner" parent="CanvasLayer" instance=ExtResource("6_c88t4")]
+
+[node name="TransitionButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
+offset_right = 44.0
+offset_bottom = 24.0
+focus_mode = 0
+script = ExtResource("2_isoi4")
+transitioner = NodePath("../Transitioner")
+
 [node name="background" type="Sprite2D" parent="."]
 position = Vector2(960, 540)
 texture = ExtResource("1_qy677")
@@ -453,3 +466,5 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("5_aejrh")]
+
+[connection signal="toggled" from="CanvasLayer/TransitionButton" to="CanvasLayer/TransitionButton" method="_on_toggled"]
