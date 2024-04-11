@@ -554,22 +554,23 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_wiq4y"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_haosr"]
+states/End/position = Vector2(689, 174)
 states/attack1/node = SubResource("AnimationNodeAnimation_gkpl1")
-states/attack1/position = Vector2(369.604, 188.131)
+states/attack1/position = Vector2(307.604, 214.131)
 states/attack2/node = SubResource("AnimationNodeAnimation_x13sd")
-states/attack2/position = Vector2(480.604, 188.131)
+states/attack2/position = Vector2(508.604, 214.131)
 states/double_jump/node = SubResource("AnimationNodeAnimation_1hyex")
-states/double_jump/position = Vector2(596, -6)
+states/double_jump/position = Vector2(698, -1)
 states/falling/node = SubResource("AnimationNodeAnimation_60eyq")
-states/falling/position = Vector2(232.604, 30.377)
+states/falling/position = Vector2(515.604, 59.377)
 states/jump_end/node = SubResource("AnimationNodeAnimation_n3amr")
-states/jump_end/position = Vector2(596, 100)
+states/jump_end/position = Vector2(723, 86)
 states/jump_start/node = SubResource("AnimationNodeAnimation_lg01u")
-states/jump_start/position = Vector2(392, -6)
+states/jump_start/position = Vector2(474, -1)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_bjy5n")
 states/move/position = Vector2(392, 100)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_i4ph4"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_2puwh"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_50dqq"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_3ny4h"), "jump_start", "double_jump", SubResource("AnimationNodeStateMachineTransition_kd0lq"), "double_jump", "jump_end", SubResource("AnimationNodeStateMachineTransition_8aae2"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_u83vl"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_64wi1"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_a8un8"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_qdsar"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_ndqo6"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_nh03k"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_taqjb"), "falling", "jump_end", SubResource("AnimationNodeStateMachineTransition_wiq4y")]
-graph_offset = Vector2(-61.3958, -6.63939)
+graph_offset = Vector2(-61.3958, -97.3677)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aweb"]
 size = Vector2(14, 32)

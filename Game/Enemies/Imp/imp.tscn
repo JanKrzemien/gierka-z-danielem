@@ -116,7 +116,7 @@ position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_hu4q0")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("7_g1iin")
+texture = ExtResource("11_4ttrn")
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
