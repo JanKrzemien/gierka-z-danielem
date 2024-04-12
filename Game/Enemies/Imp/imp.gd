@@ -1,8 +1,7 @@
 extends CharacterBody2D
 
-@export var starting_move_direction : Vector2 = Vector2.LEFT
+@export var move_direction : Vector2 = Vector2.LEFT
 @export var movement_speed : float = 30.0
-@export var hit_state : State
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var sprite2D : Sprite2D = $Sprite2D
@@ -19,14 +18,9 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	var direction : Vector2 = starting_move_direction
-	if direction && state_machine.check_if_can_move():
-		if (sprite2D.flip_h == true):
-			velocity.x = direction.x * movement_speed
-		else:
-			velocity.x = -1 * direction.x * movement_speed
-	elif state_machine.current_state != hit_state:
+	if state_machine.check_if_can_move():
+		velocity.x = move_direction.x * movement_speed
+	else:
 		velocity.x = move_toward(velocity.x, 0, movement_speed)
+	
 	move_and_slide()
-	
-	
