@@ -22,7 +22,6 @@ func set_new_animation_playing(animation_name):
 func switch_animation(fade_out):
 	set_new_animation_playing(end_lvl_anim) if fade_out else set_new_animation_playing(start_lvl_anim)
 
-func _on_animation_player_animation_finished(anim_name):
-	if(anim_name == end_lvl_anim):
-		animation_finished.emit()
+func _on_fade_out_animation_finished():
+	animation_finished.emit()
 
