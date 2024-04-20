@@ -20,11 +20,22 @@ func create_packed_button(scene_num):
 func _ready():
 	var buttons: Dictionary = {}
 	var dir = DirAccess.open(lvls_dir_path)
+	var regex: RegEx = RegEx.new()
+	regex.compile('tscn$')
+	
 	if dir:
 		dir.list_dir_begin()
-		var lvl_file_name = dir.get_next()
-		var scene_num = 1
+		var lvl_file_name: String = dir.get_next()
+		var scene_num: int = 1
+		var result: RegExMatch
+		
 		while lvl_file_name != "":
+			result = regex.search(lvl_file_name)
+			
+			if result == null:
+				lvl_file_name = dir.get_next()
+				continue
+				
 			var button = create_packed_button(scene_num)
 			if button != null:
 				buttons[button] = func ():
