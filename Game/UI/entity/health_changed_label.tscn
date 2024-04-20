@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8vpsb6s7m7wq"]
 
-[ext_resource type="Script" path="res://UI/entity/health_changed_label.gd" id="1_43n4x"]
+[ext_resource type="Script" path="res://Game/UI/entity/health_changed_label.gd" id="1_43n4x"]
 
 [node name="HealthChangedLabel" type="Label"]
 offset_left = 4.0

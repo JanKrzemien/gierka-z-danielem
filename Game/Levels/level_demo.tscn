@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://l8pscnsm0ivj"]
+[gd_scene load_steps=12 format=3 uid="uid://l8pscnsm0ivj"]
 
 [ext_resource type="Texture2D" uid="uid://85kuca51xxj2" path="res://graphics/backgrounds/Battleground1.png" id="1_qy677"]
 [ext_resource type="Script" path="res://Game/Levels/level_demo.gd" id="1_stgt7"]
@@ -6,8 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Game/Player/player.tscn" id="3_1s18a"]
 [ext_resource type="Script" path="res://Game/Levels/TransButton.gd" id="3_hvnlu"]
 [ext_resource type="PackedScene" uid="uid://mdea3ohxdyn0" path="res://Game/Enemies/Imp/imp.tscn" id="3_tfpm0"]
-[ext_resource type="PackedScene" uid="uid://wd5u8s8fv3bt" path="res://UI/health_changed_manager.tscn" id="5_aejrh"]
-[ext_resource type="PackedScene" uid="uid://crsfn8cuddk1j" path="res://UI/game_ui/transitioner.tscn" id="6_c88t4"]
+[ext_resource type="PackedScene" uid="uid://wd5u8s8fv3bt" path="res://Game/UI/health_changed_manager.tscn" id="5_aejrh"]
+[ext_resource type="PackedScene" uid="uid://crsfn8cuddk1j" path="res://Game/UI/game_ui/transitioner.tscn" id="6_c88t4"]
+[ext_resource type="PackedScene" uid="uid://dknhxv0icp7v2" path="res://Game/UI/pause_menu.tscn" id="9_7v0kx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mj6u"]
 texture = ExtResource("2_2amcc")
@@ -425,6 +426,7 @@ physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_0mj6u")
 
 [node name="Level" type="Node2D"]
+process_mode = 1
 script = ExtResource("1_stgt7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -476,5 +478,11 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("5_aejrh")]
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("game_manager") instance=ExtResource("9_7v0kx")]
+process_mode = 3
+game_manager = NodePath("../..")
 
 [connection signal="toggled" from="CanvasLayer/TransButton" to="CanvasLayer/TransButton" method="_on_toggled"]
