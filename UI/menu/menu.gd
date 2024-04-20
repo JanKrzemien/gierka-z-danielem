@@ -3,7 +3,7 @@ extends DisplayScene
 @export var quit_button: PackedScene
 @export var select_level_button: PackedScene
 
-@export var submenu: String = "res://Game/UI/menu/select_lvl_menu.tscn"
+@export var submenu: String = "res://UI/menu/select_lvl_menu.tscn"
 
 func _ready():
 	$button_list.config(

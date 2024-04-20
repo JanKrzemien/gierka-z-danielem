@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dknhxv0icp7v2"]
 
-[ext_resource type="Script" path="res://Game/UI/pause_menu.gd" id="1_5mke7"]
+[ext_resource type="Script" path="res://UI/pause_menu.gd" id="1_5mke7"]
 
 [node name="PauseMenu" type="Control"]
 texture_filter = 1

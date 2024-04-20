@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://mmfsmoh8mocy"]
 
-[ext_resource type="Script" path="res://Game/UI/menu/button_list/button_list.gd" id="1_v2hmd"]
+[ext_resource type="Script" path="res://UI/menu/button_list/button_list.gd" id="1_v2hmd"]
 
 [node name="button_list" type="Control"]
 layout_mode = 3

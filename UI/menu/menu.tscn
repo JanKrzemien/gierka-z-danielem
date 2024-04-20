@@ -1,0 +1,15 @@
+[gd_scene load_steps=5 format=3 uid="uid://36xvw2wgamow"]
+
+[ext_resource type="Script" path="res://UI/menu/menu.gd" id="1_c3n83"]
+[ext_resource type="PackedScene" uid="uid://g5b1kv8vanvb" path="res://UI/menu/buttons/quit_btn.tscn" id="2_dgudi"]
+[ext_resource type="PackedScene" uid="uid://b3ysrxqfm8v3q" path="res://UI/menu/buttons/select_lvl_btn.tscn" id="3_fwe50"]
+[ext_resource type="PackedScene" uid="uid://mmfsmoh8mocy" path="res://UI/menu/button_list/button_list.tscn" id="5_pyxcb"]
+
+[node name="Menu" type="Node2D"]
+script = ExtResource("1_c3n83")
+quit_button = ExtResource("2_dgudi")
+select_level_button = ExtResource("3_fwe50")
+
+[node name="button_list" parent="." instance=ExtResource("5_pyxcb")]
+offset_right = 1920.0
+offset_bottom = 1080.0

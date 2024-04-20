@@ -6,9 +6,9 @@
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Game/Player/player.tscn" id="3_1s18a"]
 [ext_resource type="Script" path="res://Game/Levels/TransButton.gd" id="3_hvnlu"]
 [ext_resource type="PackedScene" uid="uid://mdea3ohxdyn0" path="res://Game/Enemies/Imp/imp.tscn" id="3_tfpm0"]
-[ext_resource type="PackedScene" uid="uid://wd5u8s8fv3bt" path="res://Game/UI/health_changed_manager.tscn" id="5_aejrh"]
-[ext_resource type="PackedScene" uid="uid://crsfn8cuddk1j" path="res://Game/UI/game_ui/transitioner.tscn" id="6_c88t4"]
-[ext_resource type="PackedScene" uid="uid://dknhxv0icp7v2" path="res://Game/UI/pause_menu.tscn" id="9_7v0kx"]
+[ext_resource type="PackedScene" uid="uid://wd5u8s8fv3bt" path="res://UI/health_changed_manager.tscn" id="5_aejrh"]
+[ext_resource type="PackedScene" uid="uid://crsfn8cuddk1j" path="res://UI/game_ui/transitioner.tscn" id="6_c88t4"]
+[ext_resource type="PackedScene" uid="uid://dknhxv0icp7v2" path="res://UI/pause_menu.tscn" id="9_7v0kx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mj6u"]
 texture = ExtResource("2_2amcc")

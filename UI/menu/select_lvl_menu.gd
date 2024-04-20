@@ -4,7 +4,7 @@ extends DisplayScene
 @export var back_button: PackedScene
 
 @export var game: String = "res://Game/game.tscn"
-@export var back_menu: String = "res://Game/UI/menu/menu.tscn"
+@export var back_menu: String = "res://UI/menu/menu.tscn"
 
 func create_packed_button(scene_num):
 	var button: Button = Button.new()
