@@ -575,7 +575,7 @@ graph_offset = Vector2(-61.3958, -97.3677)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aweb"]
 size = Vector2(14, 32)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 collision_layer = 2
 script = ExtResource("1_flj5s")
 

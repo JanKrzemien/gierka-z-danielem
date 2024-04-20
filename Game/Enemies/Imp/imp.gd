@@ -19,7 +19,7 @@ func _ready():
 	animation_tree.active = true
 	
 func _physics_process(delta):
-	print(scale, " | ", move_direction.x)
+	#print(scale, " | ", move_direction.x)
 	
 	if state_machine.current_state is ImpWalk and (not floor_ray_cast.is_colliding() or wall_ray_cast.is_colliding()):
 		set_scale(Vector2(-scale.x, scale.y))

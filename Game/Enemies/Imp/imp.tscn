@@ -146,7 +146,7 @@ target_position = Vector2(-17.7778, 0)
 target_position = Vector2(-17.7778, 19.5556)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("11_4ttrn")
+texture = ExtResource("8_s1yfq")
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
