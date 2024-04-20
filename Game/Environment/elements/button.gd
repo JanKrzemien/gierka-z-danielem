@@ -15,7 +15,7 @@ func _on_area_2d_body_entered(body):
 	if (body.is_in_group("player")):
 		if (interactive.is_active == true):
 			interactive.is_active = false
-			interactive.get_node("TileMap").clear()
+			interactive.get_node("Sprite2D").visible = false
 			interactive.get_node("StaticBody2D").set_collision_layer_value(1, false)
 		else:
 			pass
