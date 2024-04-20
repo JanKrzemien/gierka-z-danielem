@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var initial_scene: String = "res://UI/menu/menu.tscn"
+@export var initial_scene: String = "res://Game/UI/menu/menu.tscn"
 
 func _ready():
 	switch_scenes(null, initial_scene)
