@@ -22,7 +22,7 @@ func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : V
 	
 	if(damageable.health > 0):
 		character.move_direction.x = -knockback_direction.x
-		character.set_scale(Vector2(character.move_direction.x*abs(character.scale.x), character.scale.y))
+		character.to_be_flipped.set_scale(Vector2(-character.move_direction.x*abs(character.to_be_flipped.scale.x), character.to_be_flipped.scale.y))
 		
 		playback.travel(hit_animation_name)
 	else:

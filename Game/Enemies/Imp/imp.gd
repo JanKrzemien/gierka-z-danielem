@@ -4,25 +4,24 @@ extends CharacterBody2D
 @export var movement_speed : float = 100.0
 
 @onready var animation_tree : AnimationTree = $AnimationTree
-@onready var sprite2D : Sprite2D = $Sprite2D
+#@onready var sprite2D : Sprite2D = $Sprite2D
 @onready var state_machine : CharacterStateMachine = $CharacterStateMachine
-@onready var floor_ray_cast: RayCast2D = $FloorCheck
-@onready var wall_ray_cast: RayCast2D = $WallCheck
+@onready var floor_ray_cast: RayCast2D = $Flippendo/FloorCheck
+@onready var wall_ray_cast: RayCast2D = $Flippendo/WallCheck
+@onready var to_be_flipped: Node2D = $Flippendo
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 #TODO remove debug
-@onready var debug_label: Label = $DebugState
+@onready var debug_label: Label = $Flippendo/Debug/DebugState
 
 func _ready():
 	animation_tree.active = true
 	
 func _physics_process(delta):
-	print(scale, " | ", move_direction.x)
-	
 	if state_machine.current_state is ImpWalk and (not floor_ray_cast.is_colliding() or wall_ray_cast.is_colliding()):
-		set_scale(Vector2(-scale.x, scale.y))
+		to_be_flipped.set_scale(Vector2(-to_be_flipped.scale.x, to_be_flipped.scale.y))
 		move_direction.x *= -1
 	
 	# Add the gravity.
@@ -38,3 +37,5 @@ func _physics_process(delta):
 	
 	#TODO remove debug
 	debug_label.text = state_machine.current_state.name
+
+
