@@ -20,12 +20,9 @@ func on_enter():
 func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : Vector2):
 	emit_signal("interrupt_state", self)
 	
-	if(damageable.health > 0):
-		if (knockback_direction == Vector2.LEFT):
-			sprite2D.flip_h = false
-		else:
-			sprite2D.flip_h = true
+	if(damageable.health > 0):		
 		character.move_direction.x = -knockback_direction.x
+		character.scale.x = abs(character.scale.x)*sign(knockback_direction.x)
 		playback.travel(hit_animation_name)
 	else:
 		next_state = dead_state
