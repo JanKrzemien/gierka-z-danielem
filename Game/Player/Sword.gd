@@ -19,11 +19,11 @@ func _on_body_entered(body):
 				var direction_sign = sign(direction_to_damageable.x)
 				
 				if(direction_sign > 0):
-					child.hit(damage, Vector2.RIGHT)
+					child.hit(player, damage, Vector2.RIGHT)
 				elif(direction_sign < 0):
-					child.hit(damage, Vector2.LEFT)
+					child.hit(player, damage, Vector2.LEFT)
 				else:
-					child.hit(damage, Vector2.ZERO)
+					child.hit(player, damage, Vector2.ZERO)
 				
 				
 func _on_player_facing_direction_changed(facing_right : bool):

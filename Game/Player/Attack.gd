@@ -18,7 +18,7 @@ func _on_animation_tree_animation_finished(anim_name):
 			next_state = return_state
 			playback.travel(return_animation_node) 
 		else:
-			playback.travel(attack2_node)
+			playback.travel(attack2_name)
 		
 	if(anim_name == attack2_name):
 		next_state = return_state 	

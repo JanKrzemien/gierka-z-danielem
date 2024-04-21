@@ -1,18 +1,11 @@
-[gd_scene load_steps=51 format=3 uid="uid://mdea3ohxdyn0"]
+[gd_scene load_steps=37 format=3 uid="uid://mdea3ohxdyn0"]
 
 [ext_resource type="Texture2D" uid="uid://qha2ou4ojnle" path="res://graphics/imp/imp_red/ready_1.png" id="1_3f3t7"]
 [ext_resource type="Script" path="res://Game/Enemies/Imp/imp.gd" id="1_nu7pv"]
-[ext_resource type="Texture2D" uid="uid://b4ur1xah0lv2f" path="res://graphics/imp/imp_red/attack1_1.png" id="3_bhaeo"]
-[ext_resource type="Script" path="res://Game/Enemies/Imp/Weapon.gd" id="3_g010c"]
-[ext_resource type="Texture2D" uid="uid://cmx74sbjk3c3j" path="res://graphics/imp/imp_red/attack1_2.png" id="4_soiaq"]
-[ext_resource type="Texture2D" uid="uid://ceb7my84e8owx" path="res://graphics/imp/imp_red/attack1_3.png" id="5_m6axg"]
-[ext_resource type="Texture2D" uid="uid://cxpwxcsngy7ex" path="res://graphics/imp/imp_red/attack1_4.png" id="6_m2hh0"]
 [ext_resource type="Texture2D" uid="uid://b61qhxd35byex" path="res://graphics/imp/imp_red/walk_1.png" id="6_pehxt"]
 [ext_resource type="Texture2D" uid="uid://dolsjam5mylos" path="res://graphics/imp/imp_red/walk_2.png" id="7_g1iin"]
 [ext_resource type="Texture2D" uid="uid://bjr5v4ktfuhel" path="res://graphics/imp/imp_red/fall_back_2.png" id="7_iflwm"]
-[ext_resource type="Texture2D" uid="uid://bov3mtcvjjfac" path="res://graphics/imp/imp_red/attack1_5.png" id="7_tr2un"]
 [ext_resource type="Texture2D" uid="uid://k1wg3egsrrb5" path="res://graphics/imp/imp_red/fall_back_3.png" id="8_e2l5x"]
-[ext_resource type="Texture2D" uid="uid://cy8ix7rq548va" path="res://graphics/imp/imp_red/attack1_6.png" id="8_e7767"]
 [ext_resource type="Texture2D" uid="uid://bq80o8sm8ycge" path="res://graphics/imp/imp_red/walk_3.png" id="8_s1yfq"]
 [ext_resource type="Texture2D" uid="uid://5p3lhqvjrrx8" path="res://graphics/imp/imp_red/fall_back_4.png" id="9_3ddd0"]
 [ext_resource type="Texture2D" uid="uid://dleqwqk0m8cq6" path="res://graphics/imp/imp_red/walk_4.png" id="9_ajwkh"]
@@ -30,85 +23,12 @@
 [ext_resource type="Script" path="res://Game/Enemies/Imp/DeadState.gd" id="19_xgd52"]
 [ext_resource type="Script" path="res://Game/Enemies/Imp/Follow.gd" id="22_56fi8"]
 [ext_resource type="Script" path="res://Game/Enemies/Imp/Attack.gd" id="23_u4qw6"]
-[ext_resource type="Script" path="res://Game/Enemies/Imp/EnemyDetected.gd" id="30_p3b1q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mtg3j"]
 size = Vector2(85.4444, 33.1111)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_m75wg"]
-size = Vector2(33.7778, 44.167)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu4q0"]
 size = Vector2(20, 31)
-
-[sub_resource type="Animation" id="Animation_8kca6"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flippendo/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [ExtResource("10_y2lsn")]
-}
-
-[sub_resource type="Animation" id="Animation_beoyr"]
-resource_name = "attack"
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Flippendo/Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0.0001, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [ExtResource("3_bhaeo"), ExtResource("4_soiaq"), ExtResource("5_m6axg"), ExtResource("6_m2hh0"), ExtResource("7_tr2un"), ExtResource("8_e7767")]
-}
-tracks/1/type = "method"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CharacterStateMachine/Attack")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"attack_finished"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Flippendo/Sprite2D:offset")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -8)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Flippendo/Weapon:monitoring")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [false, true, false]
-}
 
 [sub_resource type="Animation" id="Animation_xsb43"]
 resource_name = "dead"
@@ -175,15 +95,10 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2v8tl"]
 _data = {
-"RESET": SubResource("Animation_8kca6"),
-"attack": SubResource("Animation_beoyr"),
 "dead": SubResource("Animation_xsb43"),
 "hit": SubResource("Animation_577xi"),
 "walk": SubResource("Animation_ah2h6")
 }
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_1w8h2"]
-animation = &"attack"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l3vpp"]
 animation = &"dead"
@@ -201,42 +116,30 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_dw8we"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_clo6n"]
-
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_y4q2s"]
-switch_mode = 2
-advance_mode = 2
-
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_fxlol"]
-states/attack/node = SubResource("AnimationNodeAnimation_1w8h2")
-states/attack/position = Vector2(412, 196)
 states/dead/node = SubResource("AnimationNodeAnimation_l3vpp")
 states/dead/position = Vector2(661, 100)
 states/hit/node = SubResource("AnimationNodeAnimation_lsiyv")
-states/hit/position = Vector2(542, 100)
+states/hit/position = Vector2(541, 100)
 states/walk/node = SubResource("AnimationNodeAnimation_ilhkn")
 states/walk/position = Vector2(412, 100)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_elh81"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_or0o4"), "hit", "dead", SubResource("AnimationNodeStateMachineTransition_dw8we"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_clo6n"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_y4q2s")]
-graph_offset = Vector2(-72, 34)
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_elh81"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_or0o4"), "hit", "dead", SubResource("AnimationNodeStateMachineTransition_dw8we")]
 
 [node name="Imp" type="CharacterBody2D"]
 scale = Vector2(4.5, 4.5)
 collision_layer = 4
 script = ExtResource("1_nu7pv")
-follow_range = 500.0
 
 [node name="Flippendo" type="Node2D" parent="."]
 
 [node name="Debug" type="Node2D" parent="Flippendo"]
 
 [node name="DebugWallRaycast" type="Line2D" parent="Flippendo/Debug"]
-visible = false
 points = PackedVector2Array(0, 0, -17.778, 0)
 width = 2.0
 default_color = Color(1, 0, 0.12549, 1)
 
 [node name="DebugFloorRaycast" type="Line2D" parent="Flippendo/Debug"]
-visible = false
 points = PackedVector2Array(0, 0, -17.778, 19.556)
 width = 2.0
 default_color = Color(0, 0.321569, 1, 1)
@@ -255,13 +158,6 @@ offset_right = -11.0
 offset_bottom = 18.0
 color = Color(1, 1, 0.027451, 0.392157)
 
-[node name="DebugAttack" type="ColorRect" parent="Flippendo/Debug"]
-offset_left = -23.0
-offset_top = -27.0
-offset_right = 11.0
-offset_bottom = 17.0
-color = Color(1, 0, 0, 0.631373)
-
 [node name="WallCheck" type="RayCast2D" parent="Flippendo"]
 target_position = Vector2(-17.7778, 0)
 
@@ -269,28 +165,18 @@ target_position = Vector2(-17.7778, 0)
 target_position = Vector2(-17.7778, 19.5556)
 
 [node name="Sprite2D" type="Sprite2D" parent="Flippendo"]
-position = Vector2(-1.77778, 0)
+position = Vector2(-0.944445, 0.444445)
 scale = Vector2(0.962222, 0.981481)
-texture = ExtResource("10_y2lsn")
+texture = ExtResource("6_pehxt")
 flip_h = true
 
 [node name="DetectionArea" type="Area2D" parent="Flippendo"]
-collision_layer = 4
+collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippendo/DetectionArea"]
 position = Vector2(-53.2778, 1.77778)
 shape = SubResource("RectangleShape2D_mtg3j")
-
-[node name="Weapon" type="Area2D" parent="Flippendo" node_paths=PackedStringArray("character")]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("3_g010c")
-character = NodePath("../..")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Flippendo/Weapon"]
-position = Vector2(-6.22222, -5.33333)
-shape = SubResource("RectangleShape2D_m75wg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1.77778)
@@ -327,7 +213,6 @@ walk_state = NodePath("../Walk")
 
 [node name="Dead" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("19_xgd52")
-can_move = false
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "sprite2D", "dead_state", "return_state")]
 script = ExtResource("15_cnx56")
@@ -341,27 +226,10 @@ can_move = false
 wait_time = 0.25
 one_shot = true
 
-[node name="Follow" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state", "attack_state", "walk_state")]
+[node name="Follow" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("22_56fi8")
-air_state = NodePath("../Air")
-attack_state = NodePath("../Attack")
-walk_state = NodePath("../Walk")
 
-[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("return_state")]
+[node name="Attack" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("23_u4qw6")
-return_state = NodePath("../Follow")
-can_move = false
 
-[node name="Attack_cooldown" type="Timer" parent="CharacterStateMachine/Attack"]
-wait_time = 0.4
-one_shot = true
-
-[node name="EnemyDetected" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("follow_state")]
-script = ExtResource("30_p3b1q")
-follow_state = NodePath("../Follow")
-can_move = false
-
-[connection signal="body_entered" from="Flippendo/DetectionArea" to="CharacterStateMachine/EnemyDetected" method="_on_detection_area_body_entered"]
-[connection signal="body_entered" from="Flippendo/Weapon" to="Flippendo/Weapon" method="_on_body_entered"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
-[connection signal="timeout" from="CharacterStateMachine/Attack/Attack_cooldown" to="CharacterStateMachine/Follow" method="_on_attack_cooldown_timeout"]
