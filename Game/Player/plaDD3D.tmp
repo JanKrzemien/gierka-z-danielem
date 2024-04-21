@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://Game/Player/FacingCollisionShape2D.gd" id="9_1jong"]
 [ext_resource type="Script" path="res://Game/Player/AirState.gd" id="9_sg48e"]
 [ext_resource type="Script" path="res://Game/Player/LandingState.gd" id="10_e7jjg"]
-[ext_resource type="Script" path="res://Game/Enemies/Damagable.gd" id="10_qomwr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrs56"]
 size = Vector2(18, 32)
@@ -571,7 +570,7 @@ states/jump_start/position = Vector2(474, -1)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_bjy5n")
 states/move/position = Vector2(392, 100)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_i4ph4"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_2puwh"), "jump_start", "jump_end", SubResource("AnimationNodeStateMachineTransition_50dqq"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_3ny4h"), "jump_start", "double_jump", SubResource("AnimationNodeStateMachineTransition_kd0lq"), "double_jump", "jump_end", SubResource("AnimationNodeStateMachineTransition_8aae2"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_u83vl"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_64wi1"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_a8un8"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_qdsar"), "move", "falling", SubResource("AnimationNodeStateMachineTransition_ndqo6"), "falling", "move", SubResource("AnimationNodeStateMachineTransition_nh03k"), "falling", "jump_start", SubResource("AnimationNodeStateMachineTransition_taqjb"), "falling", "jump_end", SubResource("AnimationNodeStateMachineTransition_wiq4y")]
-graph_offset = Vector2(-92.396, 1.6323)
+graph_offset = Vector2(-61.3958, -97.3677)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3aweb"]
 size = Vector2(14, 32)
@@ -605,10 +604,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_haosr")
 anim_player = NodePath("../AnimationPlayer")
 parameters/move/blend_position = 0.0247229
-
-[node name="Damagable" type="Node" parent="."]
-script = ExtResource("10_qomwr")
-health = 50.0
 
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
 script = ExtResource("7_utua3")
@@ -654,6 +649,7 @@ collision_layer = 0
 collision_mask = 4
 monitoring = false
 script = ExtResource("8_ees4y")
+damage = null
 player = NodePath("..")
 facing_shape = NodePath("CollisionShape2D")
 
