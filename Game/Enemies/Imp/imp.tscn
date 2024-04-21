@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://mdea3ohxdyn0"]
+[gd_scene load_steps=34 format=3 uid="uid://mdea3ohxdyn0"]
 
 [ext_resource type="Texture2D" uid="uid://qha2ou4ojnle" path="res://graphics/imp/imp_red/ready_1.png" id="1_3f3t7"]
 [ext_resource type="Script" path="res://Game/Enemies/Imp/imp.gd" id="1_nu7pv"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://brp5eblbtcht5" path="res://graphics/imp/imp_red/hit_3.png" id="15_014ye"]
 [ext_resource type="Script" path="res://Game/Enemies/HitState.gd" id="15_cnx56"]
 [ext_resource type="Script" path="res://Game/Enemies/Imp/Walk.gd" id="18_ere51"]
+[ext_resource type="Script" path="res://Game/Enemies/Imp/Air.gd" id="19_57ace"]
 [ext_resource type="Script" path="res://Game/Enemies/Imp/DeadState.gd" id="19_xgd52"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hu4q0"]
@@ -128,8 +129,24 @@ script = ExtResource("1_nu7pv")
 position = Vector2(0, 2.5)
 shape = SubResource("RectangleShape2D_hu4q0")
 
+[node name="DebugWallRaycast" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, -17.778, 0)
+width = 2.0
+default_color = Color(1, 0, 0.12549, 1)
+
+[node name="DebugFloorRaycast" type="Line2D" parent="."]
+points = PackedVector2Array(0, 0, -17.778, 19.556)
+width = 2.0
+default_color = Color(0, 0.321569, 1, 1)
+
+[node name="WallCheck" type="RayCast2D" parent="."]
+target_position = Vector2(-17.7778, 0)
+
+[node name="FloorCheck" type="RayCast2D" parent="."]
+target_position = Vector2(-17.7778, 19.5556)
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("7_g1iin")
+texture = ExtResource("8_s1yfq")
 flip_h = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -147,14 +164,26 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="Damagable" type="Node" parent="."]
 script = ExtResource("12_6pkkh")
 
+[node name="DebugState" type="Label" parent="."]
+offset_left = -23.1111
+offset_top = -33.7778
+offset_right = 25.8889
+offset_bottom = -10.7778
+text = "E"
+
 [node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "animation_tree", "current_state")]
 script = ExtResource("13_vw6wb")
 character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 current_state = NodePath("Walk")
 
-[node name="Walk" type="Node" parent="CharacterStateMachine"]
+[node name="Walk" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state")]
 script = ExtResource("18_ere51")
+air_state = NodePath("../Air")
+
+[node name="Air" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("walk_state")]
+script = ExtResource("19_57ace")
+walk_state = NodePath("../Walk")
 
 [node name="Dead" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("19_xgd52")

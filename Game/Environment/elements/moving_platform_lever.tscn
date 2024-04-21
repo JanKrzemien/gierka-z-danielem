@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://bvv5isyge0rnd"]
+
+[ext_resource type="Texture2D" uid="uid://bjtwof1j3bchn" path="res://graphics/Assets/Assets.png" id="1_14i0f"]
+[ext_resource type="Script" path="res://Game/Environment/elements/moving_platform_lever.gd" id="1_hur73"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_io5os"]
+size = Vector2(80, 8)
+
+[sub_resource type="Animation" id="Animation_0f3up"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_oe82t"]
+resource_name = "move_loop"
+length = 5.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2, 3.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-300, 0), Vector2(-150, -150)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5xjd1"]
+_data = {
+"RESET": SubResource("Animation_0f3up"),
+"move_loop": SubResource("Animation_oe82t")
+}
+
+[node name="moving_platform_lever" type="Node2D"]
+scale = Vector2(5, 3)
+script = ExtResource("1_hur73")
+metadata/_edit_group_ = true
+
+[node name="platform" type="AnimatableBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="platform"]
+texture = ExtResource("1_14i0f")
+region_enabled = true
+region_rect = Rect2(16, 160, 80, 8)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="platform"]
+shape = SubResource("RectangleShape2D_io5os")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="platform"]
+libraries = {
+"": SubResource("AnimationLibrary_5xjd1")
+}

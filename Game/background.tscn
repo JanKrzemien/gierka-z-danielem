@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://ykm7ktjd5xb3"]
+
+[ext_resource type="Texture2D" uid="uid://85kuca51xxj2" path="res://graphics/backgrounds/Battleground1.png" id="1_oxrn5"]
+
+[node name="ParallaxBackground" type="ParallaxBackground"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxLayer"]
+position = Vector2(960, 540)
+texture = ExtResource("1_oxrn5")

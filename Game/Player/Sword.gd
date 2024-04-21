@@ -9,6 +9,10 @@ func _ready():
 	player.connect("facing_direction_changed", _on_player_facing_direction_changed)
 
 func _on_body_entered(body):
+	if (body.is_in_group("lever")):
+		if (body.get_name() == "lever1"):
+			body.action()
+	else:
 		for child in body.get_children():
 			if child is Damagable:
 				var direction_to_damageable = (body.global_position - get_parent().global_position)
