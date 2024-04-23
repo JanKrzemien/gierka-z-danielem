@@ -435,12 +435,9 @@ sources/0 = SubResource("TileSetAtlasSource_0mj6u")
 process_mode = 1
 script = ExtResource("1_stgt7")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_8el6b")]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transitioner" parent="CanvasLayer" instance=ExtResource("6_c88t4")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -456,6 +453,8 @@ offset_right = 44.0
 offset_bottom = 24.0
 script = ExtResource("3_hvnlu")
 transitioner = NodePath("../Transitioner")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_8el6b")]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
