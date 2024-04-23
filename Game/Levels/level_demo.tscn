@@ -435,12 +435,9 @@ sources/0 = SubResource("TileSetAtlasSource_0mj6u")
 process_mode = 1
 script = ExtResource("1_stgt7")
 
-[node name="ParallaxBackground" parent="." instance=ExtResource("2_8el6b")]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Transitioner" parent="CanvasLayer" instance=ExtResource("6_c88t4")]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -456,6 +453,15 @@ offset_right = 44.0
 offset_bottom = 24.0
 script = ExtResource("3_hvnlu")
 transitioner = NodePath("../Transitioner")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("game_manager") instance=ExtResource("9_7v0kx")]
+process_mode = 3
+visible = false
+game_manager = NodePath("../..")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_8el6b")]
 
 [node name="TileMap" type="TileMap" parent="."]
 scale = Vector2(4, 4)
@@ -483,13 +489,6 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("5_aejrh")]
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("game_manager") instance=ExtResource("9_7v0kx")]
-process_mode = 3
-visible = false
-game_manager = NodePath("../..")
 
 [node name="door" parent="." instance=ExtResource("10_dr586")]
 position = Vector2(1515, 1017)
