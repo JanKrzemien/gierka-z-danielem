@@ -1,4 +1,4 @@
-class_name SmoothPath
+class_name SmoothPath1
 extends Path2D
 
 @export var spline_length = 8
