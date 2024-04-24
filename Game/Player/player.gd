@@ -4,16 +4,18 @@ class_name Player
 
 @export var speed : float = 200.0
 
-
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine : CharacterStateMachine = $CharacterStateMachine
+
+#var is_in_water : bool = false
+var is_dead: bool = false
 
 signal facing_direction_changed(facing_right : bool)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
-var is_dead: bool = false
+
 
 # TODO DEBUG USUNĄĆ
 @onready var debug_states: Label = $DebugLabel
