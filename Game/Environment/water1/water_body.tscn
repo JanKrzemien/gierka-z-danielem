@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://uipo71361i3i"]
+
+[ext_resource type="Script" path="res://Game/Environment/water1/water_body.gd" id="1_sulj4"]
+[ext_resource type="Script" path="res://Game/Environment/water1/smooth_path_modified.gd" id="2_668rs"]
+
+[sub_resource type="Curve2D" id="Curve2D_1nhhc"]
+
+[node name="Water_Body" type="Node2D"]
+script = ExtResource("1_sulj4")
+
+[node name="Water_Polygon" type="Polygon2D" parent="."]
+color = Color(0, 0.458824, 0.466667, 0.498039)
+
+[node name="Water_Border" type="Path2D" parent="."]
+curve = SubResource("Curve2D_1nhhc")
+script = ExtResource("2_668rs")

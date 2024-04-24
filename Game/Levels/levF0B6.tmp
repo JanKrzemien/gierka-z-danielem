@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://drg7pp148de82" path="res://Game/Environment/elements/lever.tscn" id="12_5oubv"]
 [ext_resource type="PackedScene" uid="uid://dpjfdk0evcadr" path="res://Game/Environment/elements/one_way_platform.tscn" id="14_3makk"]
 [ext_resource type="PackedScene" uid="uid://bvv5isyge0rnd" path="res://Game/Environment/elements/moving_platform_lever.tscn" id="15_2h43n"]
-[ext_resource type="PackedScene" uid="uid://dxy2mm6bevgso" path="res://Game/Environment/water/Water_Body.tscn" id="16_vjomd"]
+[ext_resource type="PackedScene" uid="uid://ddbg0f23r06y8" path="res://Game/Environment/water/water_Body.tscn" id="16_wroyu"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mj6u"]
 texture = ExtResource("2_2amcc")
@@ -455,13 +455,6 @@ offset_bottom = 24.0
 script = ExtResource("3_hvnlu")
 transitioner = NodePath("../Transitioner")
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("game_manager") instance=ExtResource("9_7v0kx")]
-process_mode = 3
-visible = false
-game_manager = NodePath("../..")
-
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_8el6b")]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -491,6 +484,13 @@ drag_vertical_enabled = true
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("5_aejrh")]
 
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("game_manager") instance=ExtResource("9_7v0kx")]
+process_mode = 3
+visible = false
+game_manager = NodePath("../..")
+
 [node name="door" parent="." instance=ExtResource("10_dr586")]
 position = Vector2(1515, 1017)
 
@@ -512,10 +512,7 @@ position = Vector2(-199, 835)
 [node name="moving_platform_lever" parent="." instance=ExtResource("15_2h43n")]
 position = Vector2(2338, 925)
 
-[node name="Water_Body" parent="." instance=ExtResource("16_vjomd")]
-position = Vector2(2729, 929)
-distance_between_springs = 50
-spring_number = 8
-depth = 10
+[node name="Water_Body" parent="." instance=ExtResource("16_wroyu")]
+position = Vector2(2870, 924)
 
 [connection signal="toggled" from="CanvasLayer/TransButton" to="CanvasLayer/TransButton" method="_on_toggled"]
