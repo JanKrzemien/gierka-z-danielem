@@ -23,7 +23,9 @@ func on_exit():
 	if next_state and next_state.has_method("set_target"):
 		next_state.set_target(last_dmg_source)
 
-func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : Vector2, dmg_source):	
+func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : Vector2, dmg_source):
+	if	character.is_dead:
+		return
 	emit_signal("interrupt_state", self)
 	
 	if(damageable.health > 0):
@@ -33,7 +35,10 @@ func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : V
 		last_dmg_source = dmg_source
 		playback.travel(hit_animation_name)
 	else:
+		character.is_dead = true
 		next_state = dead_state
 
 func _on_timer_timeout():
+	if character.is_dead:
+		return
 	next_state = return_state

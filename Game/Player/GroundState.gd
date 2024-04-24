@@ -11,7 +11,7 @@ class_name GroundState
 @export var attack_state : State
 @export var attack_node : String = "attack1"
 
-func state_process(delta):
+func state_process(_delta):
 	if(!character.is_on_floor() && buffer_timer.is_stopped()):
 		playback.travel(falling_animation)
 		next_state = air_state

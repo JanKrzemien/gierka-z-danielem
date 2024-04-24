@@ -13,6 +13,10 @@ signal facing_direction_changed(facing_right : bool)
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction : Vector2 = Vector2.ZERO
+var is_dead: bool = false
+
+# TODO DEBUG USUNĄĆ
+@onready var debug_states: Label = $DebugLabel
 
 func _ready():
 	animation_tree.active = true
@@ -22,19 +26,25 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	direction = Input.get_vector("left", "right", "up", "down")
-	
-	# Control whether to move or not to move
-	if direction.x != 0 && state_machine.check_if_can_move():
-		velocity.x = direction.x * speed
-	else:
-		velocity.x = move_toward(velocity.x, 0, speed)
-
+	if not is_dead:
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		direction = Input.get_vector("left", "right", "up", "down")
+		
+		# Control whether to move or not to move
+		if direction.x != 0 && state_machine.check_if_can_move():
+			velocity.x = direction.x * speed
+		else:
+			velocity.x = move_toward(velocity.x, 0, speed)
+		
 	move_and_slide()
 	update_animation_parameters()
 	update_facing_direction()
+	
+	# TODO DEBUG USUNĄĆ
+	debug_states.text = state_machine.current_state.name
+	
+
 	
 func update_animation_parameters():
 	animation_tree.set("parameters/move/blend_position", direction.x)

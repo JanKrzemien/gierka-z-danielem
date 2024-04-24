@@ -28,6 +28,10 @@ func on_enter():
 	playback.travel(walk_animation_name)
 
 func state_process(delta):
+	if target.is_dead:
+		next_state = walk_state
+		playback.travel(walk_animation_name)
+	
 	distance_from_target = character.global_position.distance_to(target.global_position)
 	
 	if not attack_cooldown and distance_from_target < character.attack_range:

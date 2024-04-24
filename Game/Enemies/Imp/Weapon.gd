@@ -9,6 +9,4 @@ func _ready():
 func _on_body_entered(body):
 	for child in body.get_children():
 		if child is Damagable:
-			var direction_to_damageable = (body.global_position - get_parent().global_position)
-			
-			child.hit(character, damage, direction_to_damageable)
+			child.hit(character, damage, character.move_direction)

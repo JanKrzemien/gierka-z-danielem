@@ -7,6 +7,7 @@ class_name Imp
 @export var follow_movement_speed: float = 200.0
 @export var attack_range: float = 50.0
 @export var follow_range: float = 250.0
+@export var knockback_force: float = 3000.0
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine : CharacterStateMachine = $CharacterStateMachine
@@ -18,6 +19,8 @@ var movement_speed : float = walk_movement_speed
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
+
+var is_dead: bool = false
 
 #TODO remove debug
 @onready var debug_label: Label = $Flippendo/Debug/DebugState
