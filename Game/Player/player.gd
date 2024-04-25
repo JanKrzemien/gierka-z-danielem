@@ -38,10 +38,8 @@ func _physics_process(delta):
 		if direction.x != 0 && state_machine.check_if_can_move():
 			if (not is_in_water):
 				velocity.x = direction.x * speed
-				print(velocity.x)
 			else:
 				velocity.x = direction.x * speed_in_water
-				print(velocity.x)
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 		
