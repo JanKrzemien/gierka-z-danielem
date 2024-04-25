@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://l8pscnsm0ivj"]
+[gd_scene load_steps=21 format=3 uid="uid://l8pscnsm0ivj"]
 
 [ext_resource type="Script" path="res://Game/Levels/level_demo.gd" id="1_stgt7"]
 [ext_resource type="Texture2D" uid="uid://cn27edyjd8j7v" path="res://graphics/map/Tiles.png" id="2_2amcc"]
@@ -17,6 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://bvv5isyge0rnd" path="res://Game/Environment/bulding_elements/moving_platform_lever.tscn" id="15_2h43n"]
 [ext_resource type="PackedScene" uid="uid://dxy2mm6bevgso" path="res://Game/Environment/water/Water_Body.tscn" id="16_0nmph"]
 [ext_resource type="PackedScene" uid="uid://bkj3y22gbm1ms" path="res://Game/Environment/apple/apple.tscn" id="17_b0au0"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_4lq88"]
+font_size = 48
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0mj6u"]
 texture = ExtResource("2_2amcc")
@@ -440,13 +443,38 @@ physics_layer_0/collision_layer = 7
 physics_layer_0/collision_mask = 7
 sources/0 = SubResource("TileSetAtlasSource_0mj6u")
 
-[node name="Level" type="Node2D"]
+[node name="Level" type="Node2D" node_paths=PackedStringArray("transition_button", "end_screen", "player")]
 process_mode = 1
 script = ExtResource("1_stgt7")
+transition_button = NodePath("TransitionerScreem/TransButton")
+end_screen = NodePath("EndScreen")
+player = NodePath("Player")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="EndScreen" type="CanvasLayer" parent="."]
+layer = 2
+visible = false
 
-[node name="Transitioner" parent="CanvasLayer" instance=ExtResource("6_c88t4")]
+[node name="EndText" type="Label" parent="EndScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "LVL FINISHED"
+label_settings = SubResource("LabelSettings_4lq88")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TransitionerScreem" type="CanvasLayer" parent="."]
+
+[node name="Transitioner" parent="TransitionerScreem" instance=ExtResource("6_c88t4")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -457,11 +485,18 @@ offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 612.0
 
-[node name="TransButton" type="CheckButton" parent="CanvasLayer" node_paths=PackedStringArray("transitioner")]
+[node name="TransButton" type="CheckButton" parent="TransitionerScreem" node_paths=PackedStringArray("transitioner")]
 offset_right = 44.0
 offset_bottom = 24.0
 script = ExtResource("3_hvnlu")
 transitioner = NodePath("../Transitioner")
+
+[node name="PauseScreen" type="CanvasLayer" parent="."]
+
+[node name="PauseMenu" parent="PauseScreen" node_paths=PackedStringArray("game_manager") instance=ExtResource("9_7v0kx")]
+process_mode = 3
+visible = false
+game_manager = NodePath("../..")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_8el6b")]
 
@@ -493,13 +528,6 @@ drag_vertical_enabled = true
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("5_aejrh")]
 
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-
-[node name="PauseMenu" parent="CanvasLayer2" node_paths=PackedStringArray("game_manager") instance=ExtResource("9_7v0kx")]
-process_mode = 3
-visible = false
-game_manager = NodePath("../..")
-
 [node name="door" parent="." instance=ExtResource("10_dr586")]
 position = Vector2(1515, 1017)
 
@@ -530,4 +558,4 @@ depth = 100
 [node name="apple" parent="." instance=ExtResource("17_b0au0")]
 position = Vector2(208, 784)
 
-[connection signal="toggled" from="CanvasLayer/TransButton" to="CanvasLayer/TransButton" method="_on_toggled"]
+[connection signal="toggled" from="TransitionerScreem/TransButton" to="TransitionerScreem/TransButton" method="_on_toggled"]

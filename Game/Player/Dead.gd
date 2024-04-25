@@ -3,4 +3,4 @@ extends State
 class_name PlayerDeadState
 
 func on_death_anim_ended():
-	pass
+	character.player_died.emit()
