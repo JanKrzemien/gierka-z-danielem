@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=3 uid="uid://f2w1ojgv2b7m"]
+
+[ext_resource type="Script" path="res://Game/Environment/spike/spike.gd" id="1_o5vmy"]
+[ext_resource type="Texture2D" uid="uid://bjtwof1j3bchn" path="res://graphics/Assets/Assets.png" id="1_r6583"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n70a7"]
+size = Vector2(16, 16)
+
+[node name="spike" type="Node2D"]
+scale = Vector2(5, 5)
+script = ExtResource("1_o5vmy")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_r6583")
+region_enabled = true
+region_rect = Rect2(176, 128, 16, 16)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_n70a7")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

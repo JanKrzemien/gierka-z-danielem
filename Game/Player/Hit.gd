@@ -30,6 +30,7 @@ func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : V
 		character.velocity.x += knockback_direction.x * dmg_source.knockback_force
 		playback.travel(hit_animation_name)
 	else:
+		character.velocity = Vector2.ZERO
 		character.is_dead = true
 		next_state = dead_state
 		playback.travel(death_animation_name)

@@ -42,6 +42,7 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_fi0i3"]
 resource_name = "fade_out"
+length = 3.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -73,7 +74,7 @@ tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(1),
+"times": PackedFloat32Array(3),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],

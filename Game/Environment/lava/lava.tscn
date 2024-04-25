@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cl8lymrwx5tof"]
+
+[ext_resource type="Script" path="res://Game/Environment/lava/Control.gd" id="1_a2t3e"]
+[ext_resource type="Script" path="res://Game/Environment/lava/lava.gd" id="1_gede7"]
+
+[sub_resource type="Gradient" id="Gradient_wl35f"]
+offsets = PackedFloat32Array(0, 0.405983, 0.576923, 0.735043, 1)
+colors = PackedColorArray(0.612299, 7.70092e-07, 4.33177e-07, 1, 0.507253, 0.132391, 0.074946, 1, 0.786991, 0.304115, 0.190245, 1, 0.948877, 0.612402, 0, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_1db7c"]
+frequency = 0.004
+offset = Vector3(0, 887.818, 177.562)
+fractal_type = 3
+fractal_octaves = 2
+fractal_lacunarity = 1.4
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7n51r"]
+in_3d_space = true
+color_ramp = SubResource("Gradient_wl35f")
+noise = SubResource("FastNoiseLite_1db7c")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cvd80"]
+size = Vector2(512, 512)
+
+[node name="lava" type="Node2D"]
+script = ExtResource("1_gede7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_a2t3e")
+speed = Vector3(0, 50, 10)
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -276.0
+offset_top = -276.0
+offset_right = 236.0
+offset_bottom = 236.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("NoiseTexture2D_7n51r")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_cvd80")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
