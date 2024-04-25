@@ -27,6 +27,8 @@ func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : V
 	if	character.is_dead:
 		return
 	emit_signal("interrupt_state", self)
+	character.audio_player.stream = character.imp_dmg_sound
+	character.audio_player.play()
 	
 	if(damageable.health > 0):
 		character.move_direction.x = -knockback_direction.x
