@@ -296,7 +296,6 @@ character = NodePath("../..")
 
 [node name="weapon_audio_player" type="AudioStreamPlayer" parent="Flippendo/Weapon"]
 stream = ExtResource("4_b3iey")
-bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippendo/Weapon"]
 position = Vector2(-6.22222, -5.33333)
@@ -372,7 +371,6 @@ follow_state = NodePath("../Follow")
 can_move = false
 
 [node name="imp_player" type="AudioStreamPlayer" parent="."]
-bus = &"SFX"
 
 [connection signal="body_entered" from="Flippendo/DetectionArea" to="CharacterStateMachine/EnemyDetected" method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="Flippendo/Weapon" to="Flippendo/Weapon" method="_on_body_entered"]

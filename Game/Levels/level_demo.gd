@@ -8,7 +8,6 @@ signal toggle_game_paused(is_paused : bool)
 
 @export var transition_button : Button
 @export var end_screen : CanvasLayer
-@export var player : CharacterBody2D
 @export var player_died_end_text : String = "Game Over"
 
 var player_dead : bool = false:
