@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://vom0xmrggqmq"]
 
-[ext_resource type="Script" path="res://Game/Environment/elements/door.gd" id="1_jrp7t"]
+[ext_resource type="Script" path="res://Game/Environment/bulding_elements/door.gd" id="1_jrp7t"]
 [ext_resource type="Texture2D" uid="uid://bjtwof1j3bchn" path="res://graphics/Assets/Assets.png" id="2_mctgk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rgt6c"]
