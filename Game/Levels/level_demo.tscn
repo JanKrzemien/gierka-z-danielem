@@ -446,7 +446,7 @@ sources/0 = SubResource("TileSetAtlasSource_0mj6u")
 [node name="Level" type="Node2D" node_paths=PackedStringArray("transition_button", "end_screen", "player")]
 process_mode = 1
 script = ExtResource("1_stgt7")
-transition_button = NodePath("TransitionerScreem/TransButton")
+transition_button = NodePath("TransitionerScreen/TransButton")
 end_screen = NodePath("EndScreen")
 player = NodePath("Player")
 
@@ -472,9 +472,9 @@ label_settings = SubResource("LabelSettings_4lq88")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TransitionerScreem" type="CanvasLayer" parent="."]
+[node name="TransitionerScreen" type="CanvasLayer" parent="."]
 
-[node name="Transitioner" parent="TransitionerScreem" instance=ExtResource("6_c88t4")]
+[node name="Transitioner" parent="TransitionerScreen" instance=ExtResource("6_c88t4")]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -485,7 +485,7 @@ offset_top = -540.0
 offset_right = 960.0
 offset_bottom = 612.0
 
-[node name="TransButton" type="CheckButton" parent="TransitionerScreem" node_paths=PackedStringArray("transitioner")]
+[node name="TransButton" type="CheckButton" parent="TransitionerScreen" node_paths=PackedStringArray("transitioner")]
 offset_right = 44.0
 offset_bottom = 24.0
 script = ExtResource("3_hvnlu")
@@ -558,4 +558,4 @@ depth = 100
 [node name="apple" parent="." instance=ExtResource("17_b0au0")]
 position = Vector2(208, 784)
 
-[connection signal="toggled" from="TransitionerScreem/TransButton" to="TransitionerScreem/TransButton" method="_on_toggled"]
+[connection signal="toggled" from="TransitionerScreen/TransButton" to="TransitionerScreen/TransButton" method="_on_toggled"]
