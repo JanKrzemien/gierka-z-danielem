@@ -1,12 +1,10 @@
-[gd_scene load_steps=21 format=3 uid="uid://l8pscnsm0ivj"]
+[gd_scene load_steps=19 format=3 uid="uid://l8pscnsm0ivj"]
 
 [ext_resource type="Script" path="res://Game/Levels/level_demo.gd" id="1_stgt7"]
 [ext_resource type="Texture2D" uid="uid://cn27edyjd8j7v" path="res://graphics/map/Tiles.png" id="2_2amcc"]
 [ext_resource type="PackedScene" uid="uid://ykm7ktjd5xb3" path="res://Game/background.tscn" id="2_8el6b"]
-[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Game/Player/player.tscn" id="3_1s18a"]
 [ext_resource type="Script" path="res://Game/Levels/TransButton.gd" id="3_hvnlu"]
 [ext_resource type="PackedScene" uid="uid://mdea3ohxdyn0" path="res://Game/Enemies/Imp/imp.tscn" id="3_tfpm0"]
-[ext_resource type="PackedScene" uid="uid://wd5u8s8fv3bt" path="res://UI/health_changed_manager.tscn" id="5_aejrh"]
 [ext_resource type="PackedScene" uid="uid://crsfn8cuddk1j" path="res://UI/game_ui/transitioner.tscn" id="6_c88t4"]
 [ext_resource type="PackedScene" uid="uid://db6g0h0a4bxo3" path="res://Game/Environment/bulding_elements/moving_platform.tscn" id="7_ubq1n"]
 [ext_resource type="PackedScene" uid="uid://dknhxv0icp7v2" path="res://UI/pause_menu.tscn" id="9_7v0kx"]
@@ -448,7 +446,7 @@ process_mode = 1
 script = ExtResource("1_stgt7")
 transition_button = NodePath("TransitionerScreen/TransButton")
 end_screen = NodePath("EndScreen")
-player = NodePath("Player")
+player = NodePath("")
 
 [node name="EndScreen" type="CanvasLayer" parent="."]
 layer = 2
@@ -509,24 +507,6 @@ layer_0/tile_data = PackedInt32Array(1966080, 589824, 2, 2031616, 589824, 3, 196
 
 [node name="Imp" parent="." instance=ExtResource("3_tfpm0")]
 position = Vector2(856, 920)
-
-[node name="Player" parent="." instance=ExtResource("3_1s18a")]
-position = Vector2(991, 472)
-scale = Vector2(4, 4)
-speed = 500.0
-
-[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
-remote_path = NodePath("../../Camera2D")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(991, 472)
-scale = Vector2(4, 4)
-process_callback = 0
-position_smoothing_enabled = true
-drag_horizontal_enabled = true
-drag_vertical_enabled = true
-
-[node name="HealthChangedManager" parent="." instance=ExtResource("5_aejrh")]
 
 [node name="door" parent="." instance=ExtResource("10_dr586")]
 position = Vector2(1515, 1017)

@@ -1,7 +1,28 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcrxa1jg71ram"]
+[gd_scene load_steps=4 format=3 uid="uid://bcrxa1jg71ram"]
 
 [ext_resource type="Script" path="res://Game/game.gd" id="1_ufuiy"]
+[ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Game/Player/player.tscn" id="2_i45rb"]
+[ext_resource type="PackedScene" uid="uid://wd5u8s8fv3bt" path="res://UI/health_changed_manager.tscn" id="3_7m283"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_ufuiy")
 scene_to_load = "res://UI/menu/select_lvl_menu.tscn"
+player = NodePath("Player")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(991, 472)
+scale = Vector2(4, 4)
+process_callback = 0
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+
+[node name="HealthChangedManager" parent="." instance=ExtResource("3_7m283")]
+
+[node name="Player" parent="." instance=ExtResource("2_i45rb")]
+position = Vector2(991, 472)
+scale = Vector2(4, 4)
+speed = 500.0
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
+remote_path = NodePath("../../Camera2D")
