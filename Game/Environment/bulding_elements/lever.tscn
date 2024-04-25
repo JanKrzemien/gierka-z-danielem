@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://drg7pp148de82"]
 
-[ext_resource type="Script" path="res://Game/Environment/elements/lever.gd" id="1_g53e7"]
+[ext_resource type="Script" path="res://Game/Environment/bulding_elements/lever.gd" id="1_g53e7"]
 [ext_resource type="Texture2D" uid="uid://bjtwof1j3bchn" path="res://graphics/Assets/Assets.png" id="1_i0vwt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4c538"]
