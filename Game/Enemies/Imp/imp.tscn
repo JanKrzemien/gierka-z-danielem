@@ -1,9 +1,12 @@
-[gd_scene load_steps=51 format=3 uid="uid://mdea3ohxdyn0"]
+[gd_scene load_steps=54 format=3 uid="uid://mdea3ohxdyn0"]
 
 [ext_resource type="Texture2D" uid="uid://qha2ou4ojnle" path="res://graphics/imp/imp_red/ready_1.png" id="1_3f3t7"]
 [ext_resource type="Script" path="res://Game/Enemies/Imp/imp.gd" id="1_nu7pv"]
+[ext_resource type="AudioStream" uid="uid://cogcgleseltcx" path="res://audio/world/im_dmg.wav" id="2_bnsxj"]
 [ext_resource type="Texture2D" uid="uid://b4ur1xah0lv2f" path="res://graphics/imp/imp_red/attack1_1.png" id="3_bhaeo"]
 [ext_resource type="Script" path="res://Game/Enemies/Imp/Weapon.gd" id="3_g010c"]
+[ext_resource type="AudioStream" uid="uid://dq6b8sogm56by" path="res://audio/world/imp_death.wav" id="3_w83ew"]
+[ext_resource type="AudioStream" uid="uid://dpxkuogxw5jj3" path="res://audio/world/imp_attack.wav" id="4_b3iey"]
 [ext_resource type="Texture2D" uid="uid://cmx74sbjk3c3j" path="res://graphics/imp/imp_red/attack1_2.png" id="4_soiaq"]
 [ext_resource type="Texture2D" uid="uid://ceb7my84e8owx" path="res://graphics/imp/imp_red/attack1_3.png" id="5_m6axg"]
 [ext_resource type="Texture2D" uid="uid://cxpwxcsngy7ex" path="res://graphics/imp/imp_red/attack1_4.png" id="6_m2hh0"]
@@ -219,11 +222,14 @@ states/walk/position = Vector2(412, 100)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_elh81"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_or0o4"), "hit", "dead", SubResource("AnimationNodeStateMachineTransition_dw8we"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_clo6n"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_y4q2s")]
 graph_offset = Vector2(-72, 34)
 
-[node name="Imp" type="CharacterBody2D"]
+[node name="Imp" type="CharacterBody2D" node_paths=PackedStringArray("audio_player")]
 scale = Vector2(4.5, 4.5)
 collision_layer = 4
 script = ExtResource("1_nu7pv")
 follow_range = 500.0
+imp_dmg_sound = ExtResource("2_bnsxj")
+imp_death_sound = ExtResource("3_w83ew")
+audio_player = NodePath("imp_player")
 
 [node name="Flippendo" type="Node2D" parent="."]
 
@@ -287,6 +293,10 @@ collision_layer = 4
 collision_mask = 2
 script = ExtResource("3_g010c")
 character = NodePath("../..")
+
+[node name="weapon_audio_player" type="AudioStreamPlayer" parent="Flippendo/Weapon"]
+stream = ExtResource("4_b3iey")
+bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Flippendo/Weapon"]
 position = Vector2(-6.22222, -5.33333)
@@ -360,6 +370,9 @@ one_shot = true
 script = ExtResource("30_p3b1q")
 follow_state = NodePath("../Follow")
 can_move = false
+
+[node name="imp_player" type="AudioStreamPlayer" parent="."]
+bus = &"SFX"
 
 [connection signal="body_entered" from="Flippendo/DetectionArea" to="CharacterStateMachine/EnemyDetected" method="_on_detection_area_body_entered"]
 [connection signal="body_entered" from="Flippendo/Weapon" to="Flippendo/Weapon" method="_on_body_entered"]
