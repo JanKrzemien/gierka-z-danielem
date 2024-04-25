@@ -3,6 +3,7 @@ extends Node
 class_name Damagable
 
 signal on_hit(node : Node, damage_taken : float, knockback_direction : Vector2, dmg_source)
+signal on_heal(node : Node, health_restored : float)
 
 @export var health : float = 20 :
 	get:
@@ -17,3 +18,4 @@ func hit(dmg_source, damage : float, knockback_direction : Vector2):
 
 func heal(heal_source, heal: float):
 	health += heal
+	emit_signal("on_heal", heal_source, heal)

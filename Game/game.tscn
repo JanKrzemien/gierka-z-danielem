@@ -1,13 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bcrxa1jg71ram"]
+[gd_scene load_steps=5 format=3 uid="uid://bcrxa1jg71ram"]
 
 [ext_resource type="Script" path="res://Game/game.gd" id="1_ufuiy"]
 [ext_resource type="PackedScene" uid="uid://xxaoff7gwbrm" path="res://Game/Player/player.tscn" id="2_i45rb"]
 [ext_resource type="PackedScene" uid="uid://wd5u8s8fv3bt" path="res://UI/health_changed_manager.tscn" id="3_7m283"]
 
-[node name="Game" type="Node2D" node_paths=PackedStringArray("player")]
+[sub_resource type="LabelSettings" id="LabelSettings_auroi"]
+font_size = 32
+font_color = Color(1, 0, 0, 1)
+
+[node name="Game" type="Node2D" node_paths=PackedStringArray("player", "player_ui")]
 script = ExtResource("1_ufuiy")
 scene_to_load = "res://UI/menu/select_lvl_menu.tscn"
 player = NodePath("Player")
+player_ui = NodePath("PlayerUI")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(991, 472)
@@ -26,3 +31,15 @@ speed = 500.0
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="Player"]
 remote_path = NodePath("../../Camera2D")
+
+[node name="PlayerUI" type="CanvasLayer" parent="."]
+
+[node name="Health" type="Label" parent="PlayerUI"]
+offset_left = 128.0
+offset_right = 168.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "0"
+label_settings = SubResource("LabelSettings_auroi")
+horizontal_alignment = 1
+vertical_alignment = 1
