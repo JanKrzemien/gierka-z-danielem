@@ -117,9 +117,14 @@ func splash(index, speed):
 	if index >= 0 and index < springs.size():
 		springs[index].velocity += speed
 	pass
-
-func _on_Water_Body_Area_body_entered(body):
-	#spowolnienie jakoś zrobić
-	pass
 	
+
+func _on_water_body_area_body_entered(body):
+	if (body.name == "Player"):
+		body.is_in_water = true
+	pass
+
+func _on_water_body_area_body_exited(body):
+	if (body.name == "Player"):
+		body.is_in_water = false
 	pass

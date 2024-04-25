@@ -48,8 +48,7 @@ func set_collision_width(value):
 
 
 func _on_Area2D_body_entered(body):
-	
-	var speed = body.velocity.y * motion_factor
-	
-	emit_signal("splash",index,speed)
+	if (body.name == "Player"):
+		var speed = body.velocity.y * motion_factor
+		emit_signal("splash",index,speed)
 	pass
