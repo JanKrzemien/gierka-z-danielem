@@ -8,6 +8,10 @@ class_name Imp
 @export var attack_range: float = 50.0
 @export var follow_range: float = 250.0
 @export var knockback_force: float = 3000.0
+@export var imp_dmg_sound : AudioStream
+@export var imp_death_sound : AudioStream
+@export var audio_player : AudioStreamPlayer
+
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine : CharacterStateMachine = $CharacterStateMachine
