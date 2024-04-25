@@ -24,8 +24,9 @@ func on_damageable_hit(node : Node, damage_amount : int, knockback_direction : V
 		return
 	emit_signal("interrupt_state", self)
 	
+	SignalBus.emit_signal("player_health_changed", -damage_amount)
+	
 	if(damageable.health > 0):
-		print(knockback_direction.x)
 		character.velocity.x += knockback_direction.x * dmg_source.knockback_force
 		playback.travel(hit_animation_name)
 	else:

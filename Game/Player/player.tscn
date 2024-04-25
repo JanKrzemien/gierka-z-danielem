@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=3 uid="uid://xxaoff7gwbrm"]
+[gd_scene load_steps=58 format=3 uid="uid://xxaoff7gwbrm"]
 
 [ext_resource type="Script" path="res://Game/Player/player.gd" id="1_flj5s"]
 [ext_resource type="Texture2D" uid="uid://cj84xxujn648k" path="res://graphics/character/blue/char_blue_1.png" id="2_grvfw"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" path="res://Game/Player/LandingState.gd" id="10_e7jjg"]
 [ext_resource type="Script" path="res://Game/Enemies/Damagable.gd" id="10_qomwr"]
 [ext_resource type="Script" path="res://Game/Player/Dead.gd" id="10_w4wi7"]
+[ext_resource type="Script" path="res://Game/Player/Heal.gd" id="11_e1k7g"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rrs56"]
 size = Vector2(18, 32)
@@ -842,6 +843,10 @@ one_shot = true
 [node name="Dead" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("10_w4wi7")
 can_move = false
+
+[node name="Heal" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]
+script = ExtResource("11_e1k7g")
+damageable = NodePath("../../Damagable")
 
 [node name="Sword" type="Area2D" parent="." node_paths=PackedStringArray("player", "facing_shape")]
 collision_layer = 0

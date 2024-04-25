@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 class_name Player
 
+signal player_died
+
 @export var speed : float = 200.0
 @export var speed_in_water : float = 150.0
 
