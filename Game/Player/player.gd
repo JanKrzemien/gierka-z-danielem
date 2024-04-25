@@ -3,12 +3,13 @@ extends CharacterBody2D
 class_name Player
 
 @export var speed : float = 200.0
+@export var speed_in_water : float = 150.0
 
 @onready var sprite : Sprite2D = $Sprite2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine : CharacterStateMachine = $CharacterStateMachine
 
-#var is_in_water : bool = false
+var is_in_water : bool = false
 var is_dead: bool = false
 
 signal facing_direction_changed(facing_right : bool)
@@ -35,7 +36,12 @@ func _physics_process(delta):
 		
 		# Control whether to move or not to move
 		if direction.x != 0 && state_machine.check_if_can_move():
-			velocity.x = direction.x * speed
+			if (not is_in_water):
+				velocity.x = direction.x * speed
+				print(velocity.x)
+			else:
+				velocity.x = direction.x * speed_in_water
+				print(velocity.x)
 		else:
 			velocity.x = move_toward(velocity.x, 0, speed)
 		

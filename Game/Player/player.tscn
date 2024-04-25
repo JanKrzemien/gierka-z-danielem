@@ -793,8 +793,9 @@ character = NodePath("..")
 animation_tree = NodePath("../AnimationTree")
 current_state = NodePath("Ground")
 
-[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("air_state", "attack_state")]
+[node name="Ground" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("player", "air_state", "attack_state")]
 script = ExtResource("8_yi76h")
+player = NodePath("../..")
 jump_velocity = -750.0
 air_state = NodePath("../Air")
 jump_animation = "jump_start"
